@@ -34,8 +34,8 @@ gn.init().then(function () {
     const beta = toRadian(data.do.beta)
     const gamma = toRadian(data.do.gamma)
 
-    const angle = new THREE.Euler(beta, gamma, alpha)
-
-    cube.rotation = angle
+    cube.rotation.x = beta
+    cube.rotation.y = gamma
+    cube.rotation.z = alpha
   })
 })
