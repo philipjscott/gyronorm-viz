@@ -75,8 +75,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-console.log('hello world')
+var toRadians = function (angle) { return angle * (Math.PI / 180); }
 
+var scene = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* Scene */]()
+var camera = new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* PerspectiveCamera */](75, window.innerWidth / window.innerHeight, 0.1, 1000)
+var renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* WebGLRenderer */]()
+
+renderer.setSize(window.innerWidth, window.innerHeight)
+document.body.appendChild(renderer.domElement)
+
+var geometry = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BoxGeometry */](1, 1, 1)
+var material = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* MeshBasicMaterial */]({ color: 0xffff00 })
+var cube = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Mesh */](geometry, material)
+
+scene.add(cube)
+camera.position.z = 5
+
+function animate() {
+  requestAnimationFrame(animate)
+  renderer.render(scene, camera)
+}
+
+animate()
+
+var gn = new __WEBPACK_IMPORTED_MODULE_1_gyronorm__()
+
+gn.init().then(function () {
+  gn.start(function (data) {
+    var alpha = toRadian(data.do.alpha)
+    var beta = toRadian(data.do.beta)
+    var gamma = toRadian(data.do.gamma)
+
+    var angle = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* Euler */](beta, gamma, alpha)
+
+    cube.applyEuler(angle)
+  })
+})
 
 
 /***/ }),
@@ -86,21 +120,21 @@ console.log('hello world')
 "use strict";
 /* unused harmony export WebGLRenderTargetCube */
 /* unused harmony export WebGLRenderTarget */
-/* unused harmony export WebGLRenderer */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return WebGLRenderer; });
 /* unused harmony export ShaderLib */
 /* unused harmony export UniformsLib */
 /* unused harmony export UniformsUtils */
 /* unused harmony export ShaderChunk */
 /* unused harmony export FogExp2 */
 /* unused harmony export Fog */
-/* unused harmony export Scene */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Scene; });
 /* unused harmony export LensFlare */
 /* unused harmony export Sprite */
 /* unused harmony export LOD */
 /* unused harmony export SkinnedMesh */
 /* unused harmony export Skeleton */
 /* unused harmony export Bone */
-/* unused harmony export Mesh */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Mesh; });
 /* unused harmony export LineSegments */
 /* unused harmony export LineLoop */
 /* unused harmony export Line */
@@ -142,7 +176,7 @@ console.log('hello world')
 /* unused harmony export LightShadow */
 /* unused harmony export Light */
 /* unused harmony export StereoCamera */
-/* unused harmony export PerspectiveCamera */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return PerspectiveCamera; });
 /* unused harmony export OrthographicCamera */
 /* unused harmony export CubeCamera */
 /* unused harmony export ArrayCamera */
@@ -197,7 +231,7 @@ console.log('hello world')
 /* unused harmony export Box3 */
 /* unused harmony export Box2 */
 /* unused harmony export Line3 */
-/* unused harmony export Euler */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Euler; });
 /* unused harmony export Vector4 */
 /* unused harmony export Vector3 */
 /* unused harmony export Vector2 */
@@ -269,7 +303,7 @@ console.log('hello world')
 /* unused harmony export CylinderBufferGeometry */
 /* unused harmony export CircleGeometry */
 /* unused harmony export CircleBufferGeometry */
-/* unused harmony export BoxGeometry */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BoxGeometry; });
 /* unused harmony export BoxBufferGeometry */
 /* unused harmony export ShadowMaterial */
 /* unused harmony export SpriteMaterial */
@@ -284,7 +318,7 @@ console.log('hello world')
 /* unused harmony export MeshLambertMaterial */
 /* unused harmony export MeshDepthMaterial */
 /* unused harmony export MeshDistanceMaterial */
-/* unused harmony export MeshBasicMaterial */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return MeshBasicMaterial; });
 /* unused harmony export LineDashedMaterial */
 /* unused harmony export LineBasicMaterial */
 /* unused harmony export Material */
