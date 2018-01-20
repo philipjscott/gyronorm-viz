@@ -1,0 +1,20 @@
+language: node_js
+before_script:
+- yarn install
+- mkdir dist
+- yarn run build
+node_js:
+- node
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: dist
+  target-branch: gh-pages
+  on:
+    branch: master
+
+env:
+  global:
+    secure: luMZXr3GzPx79dwbVGBZkufTWY2y1uDxm2rKppGXXyiGAnk2H4ebfmb3iJHcI9mqA8qUnIZZEwx8ly7o+gCU6CePPiCYGZ3KMDTUdP8ezJELmBKa6HCocviLx3i/7UiPNyRDCaIAa5POGYgHnTZsSFz9jf8t9MgNWrpE4gYQ7ZAO+OymNF//s/fJciN4xbl9uyas6SStyrkshqoqN0Qt6VVEsRWmbrNVFWpo7Bdm2qtB4cp2pjBELnOT8Vcz0H0V61cNOMZd7bk9HJ4lIxs3H78uAiBP98afHMpTAkV0W2sIMoK/w5ejhL5uS3Lwmy25GOEMBPYyp7j6k6XmUTAYNXwylrBorBYz1wrdg13VpE1nr9oy1mM4FqtI9x+e2CIBxaYtKVZZXb1lDcMMFrzvn+pE8gyYKSo73hNa1+W1sd9qEkD7MVd2dwciQTqfF7AicyQnzLALMNU8t9io46VJ/zOQf77YMyoxTAd0o6Yv+HUsXgMEbiAc4+yYE7iJhbZeV9E+YIppIdeXpT31v+mQcIUWZB3RYTMQriF8Bw2Xfa0aYOtTVzSII2HFXLUKQZUDVxz75znVzSeKoFOItfD7/1P6Z0ZcpmdxZK4qORwRwS1pTHwKLbnOw9rokIj8bWjGfArC7mq+VTImgRpdfSBS0UtMYH5UEJlX2WCBPVY7Uns=
