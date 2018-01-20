@@ -1,6 +1,8 @@
 import * as THREE from 'three'
 import * as GyroNorm from 'gyronorm'
 
+console.log('hello')
+
 const toRadians = angle => angle * (Math.PI / 180)
 
 const scene = new THREE.Scene()
@@ -34,6 +36,6 @@ gn.init().then(function () {
 
     const angle = new THREE.Euler(beta, gamma, alpha)
 
-    cube.applyEuler(angle)
+    cube.rotation = angle
   })
 })
