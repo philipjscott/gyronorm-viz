@@ -75,6 +75,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+console.log('branch works')
 var toRadians = function (angle) { return angle * (Math.PI / 180); }
 
 var scene = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* Scene */]()
@@ -108,7 +110,7 @@ gn.init().then(function () {
 
     var angle = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* Euler */](beta, gamma, alpha)
 
-    cube.applyEuler(angle)
+    cube.rotation = angle
   })
 })
 
