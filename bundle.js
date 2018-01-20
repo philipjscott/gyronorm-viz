@@ -79,16 +79,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 console.log('branch works')
 var toRadians = function (angle) { return angle * (Math.PI / 180); }
 
-var scene = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* Scene */]()
-var camera = new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* PerspectiveCamera */](75, window.innerWidth / window.innerHeight, 0.1, 1000)
-var renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* WebGLRenderer */]()
+var scene = new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* Scene */]()
+var camera = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* PerspectiveCamera */](75, window.innerWidth / window.innerHeight, 0.1, 1000)
+var renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* WebGLRenderer */]()
 
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
 var geometry = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BoxGeometry */](1, 1, 1)
-var material = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* MeshBasicMaterial */]({ color: 0xffff00 })
-var cube = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* Mesh */](geometry, material)
+var material = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* MeshBasicMaterial */]({ color: 0xffff00 })
+var cube = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* Mesh */](geometry, material)
 
 scene.add(cube)
 camera.position.z = 5
@@ -108,9 +108,9 @@ gn.init().then(function () {
     var beta = toRadian(data.do.beta)
     var gamma = toRadian(data.do.gamma)
 
-    var angle = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* Euler */](beta, gamma, alpha)
-
-    cube.rotation = angle
+    cube.rotation.x = beta
+    cube.rotation.y = gamma
+    cube.rotation.z = alpha
   })
 })
 
@@ -122,21 +122,21 @@ gn.init().then(function () {
 "use strict";
 /* unused harmony export WebGLRenderTargetCube */
 /* unused harmony export WebGLRenderTarget */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return WebGLRenderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return WebGLRenderer; });
 /* unused harmony export ShaderLib */
 /* unused harmony export UniformsLib */
 /* unused harmony export UniformsUtils */
 /* unused harmony export ShaderChunk */
 /* unused harmony export FogExp2 */
 /* unused harmony export Fog */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Scene; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Scene; });
 /* unused harmony export LensFlare */
 /* unused harmony export Sprite */
 /* unused harmony export LOD */
 /* unused harmony export SkinnedMesh */
 /* unused harmony export Skeleton */
 /* unused harmony export Bone */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Mesh; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Mesh; });
 /* unused harmony export LineSegments */
 /* unused harmony export LineLoop */
 /* unused harmony export Line */
@@ -178,7 +178,7 @@ gn.init().then(function () {
 /* unused harmony export LightShadow */
 /* unused harmony export Light */
 /* unused harmony export StereoCamera */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return PerspectiveCamera; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return PerspectiveCamera; });
 /* unused harmony export OrthographicCamera */
 /* unused harmony export CubeCamera */
 /* unused harmony export ArrayCamera */
@@ -233,7 +233,7 @@ gn.init().then(function () {
 /* unused harmony export Box3 */
 /* unused harmony export Box2 */
 /* unused harmony export Line3 */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Euler; });
+/* unused harmony export Euler */
 /* unused harmony export Vector4 */
 /* unused harmony export Vector3 */
 /* unused harmony export Vector2 */
@@ -320,7 +320,7 @@ gn.init().then(function () {
 /* unused harmony export MeshLambertMaterial */
 /* unused harmony export MeshDepthMaterial */
 /* unused harmony export MeshDistanceMaterial */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return MeshBasicMaterial; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return MeshBasicMaterial; });
 /* unused harmony export LineDashedMaterial */
 /* unused harmony export LineBasicMaterial */
 /* unused harmony export Material */
