@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import * as GyroNorm from 'gyronorm'
 
-console.log('hello')
 
+console.log('branch works')
 const toRadians = angle => angle * (Math.PI / 180)
 
 const scene = new THREE.Scene()
