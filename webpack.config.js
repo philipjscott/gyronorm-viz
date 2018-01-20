@@ -1,9 +1,15 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 const plugins = [
   new HtmlWebpackPlugin({
     title: 'gyronorm-viz',
+  }),
+  new AddAssetHtmlPlugin({
+    filepath: path.join(__dirname, './src/style.css'),
+    typeOfAsset: 'css',
+    includeSourcemap: false
   })
 ]
 

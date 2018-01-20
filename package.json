@@ -10,6 +10,7 @@
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^2.1.2",
     "buble-loader": "^0.4.1",
     "gyronorm": "^2.0.6",
     "html-webpack-plugin": "^2.30.1",
