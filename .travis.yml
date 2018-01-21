@@ -13,7 +13,7 @@ deploy:
   local-dir: dist
   target-branch: gh-pages
   on:
-    branch: rotation
+    branch: master
 
 env:
   global:
