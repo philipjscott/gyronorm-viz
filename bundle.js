@@ -70,14 +70,12 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_three__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gyronorm__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gyronorm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_gyronorm__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vendor_gyronorm_complete_min__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vendor_gyronorm_complete_min___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__vendor_gyronorm_complete_min__);
 
 
 
-
-console.log('branch works')
-var toRadians = function (angle) { return angle * (Math.PI / 180); }
+var toRadian = function (angle) { return angle * (Math.PI / 180); }
 
 var scene = new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* Scene */]()
 var camera = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* PerspectiveCamera */](75, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -87,20 +85,22 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
 var geometry = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BoxGeometry */](1, 1, 1)
-var material = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* MeshBasicMaterial */]({ color: 0xffff00 })
+var material = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* MeshNormalMaterial */]({ color: 0xffff00 })
 var cube = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* Mesh */](geometry, material)
 
 scene.add(cube)
 camera.position.z = 5
+  cube.rotation.y = 1
 
 function animate() {
   requestAnimationFrame(animate)
+
   renderer.render(scene, camera)
 }
 
 animate()
 
-var gn = new __WEBPACK_IMPORTED_MODULE_1_gyronorm__()
+var gn = new __WEBPACK_IMPORTED_MODULE_1__vendor_gyronorm_complete_min__["GyroNorm"]()
 
 gn.init().then(function () {
   gn.start(function (data) {
@@ -316,11 +316,11 @@ gn.init().then(function () {
 /* unused harmony export MeshStandardMaterial */
 /* unused harmony export MeshPhongMaterial */
 /* unused harmony export MeshToonMaterial */
-/* unused harmony export MeshNormalMaterial */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return MeshNormalMaterial; });
 /* unused harmony export MeshLambertMaterial */
 /* unused harmony export MeshDepthMaterial */
 /* unused harmony export MeshDistanceMaterial */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return MeshBasicMaterial; });
+/* unused harmony export MeshBasicMaterial */
 /* unused harmony export LineDashedMaterial */
 /* unused harmony export LineBasicMaterial */
 /* unused harmony export Material */
@@ -46281,381 +46281,16 @@ function CanvasRenderer() {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/**
-* JavaScript project for accessing and normalizing the accelerometer and gyroscope data on mobile devices
-*
-* @author Doruk Eker <dorukeker@gmail.com>
-* @copyright Doruk Eker <http://dorukeker.com>
-* @version 2.0.4
-* @license MIT License | http://opensource.org/licenses/MIT
-*/
+var __WEBPACK_AMD_DEFINE_RESULT__;/*! Full Tilt v0.5.3 / http://github.com/richtr/Full-Tilt */
+!function(a){function b(a){return a=+a,0===a||isNaN(a)?a:a>0?1:-1}function c(a){var b=new Promise(function(b,c){var d=function(e){setTimeout(function(){a&&a.data?b():e>=20?c():d(++e)},50)};d(0)});return b}function d(){o=n?(a.screen.orientation.angle||0)*j:(a.orientation||0)*j}function e(a){
+var this$1 = this;
+l.orientation.data=a;for(var b in l.orientation.callbacks){ l.orientation.callbacks[b].call(this$1) }}function f(a){
+var this$1 = this;
+l.motion.data=a;for(var b in l.motion.callbacks){ l.motion.callbacks[b].call(this$1) }}if(void 0===a.FULLTILT||null===a.FULLTILT){var g=Math.PI,h=g/2,i=2*g,j=g/180,k=180/g,l={orientation:{active:!1,callbacks:[],data:void 0},motion:{active:!1,callbacks:[],data:void 0}},m=!1,n=a.screen&&a.screen.orientation&&void 0!==a.screen.orientation.angle&&null!==a.screen.orientation.angle?!0:!1,o=(n?a.screen.orientation.angle:a.orientation||0)*j,p=h,q=g,r=i/3,s=-h,t={};t.version="0.5.3",t.getDeviceOrientation=function(a){var b=new Promise(function(b,d){var e=new t.DeviceOrientation(a);e.start();var f=new c(l.orientation);f.then(function(){e._alphaAvailable=l.orientation.data.alpha&&null!==l.orientation.data.alpha,e._betaAvailable=l.orientation.data.beta&&null!==l.orientation.data.beta,e._gammaAvailable=l.orientation.data.gamma&&null!==l.orientation.data.gamma,b(e)})["catch"](function(){e.stop(),d("DeviceOrientation is not supported")})});return b},t.getDeviceMotion=function(a){var b=new Promise(function(b,d){var e=new t.DeviceMotion(a);e.start();var f=new c(l.motion);f.then(function(){e._accelerationXAvailable=l.motion.data.acceleration&&l.motion.data.acceleration.x,e._accelerationYAvailable=l.motion.data.acceleration&&l.motion.data.acceleration.y,e._accelerationZAvailable=l.motion.data.acceleration&&l.motion.data.acceleration.z,e._accelerationIncludingGravityXAvailable=l.motion.data.accelerationIncludingGravity&&l.motion.data.accelerationIncludingGravity.x,e._accelerationIncludingGravityYAvailable=l.motion.data.accelerationIncludingGravity&&l.motion.data.accelerationIncludingGravity.y,e._accelerationIncludingGravityZAvailable=l.motion.data.accelerationIncludingGravity&&l.motion.data.accelerationIncludingGravity.z,e._rotationRateAlphaAvailable=l.motion.data.rotationRate&&l.motion.data.rotationRate.alpha,e._rotationRateBetaAvailable=l.motion.data.rotationRate&&l.motion.data.rotationRate.beta,e._rotationRateGammaAvailable=l.motion.data.rotationRate&&l.motion.data.rotationRate.gamma,b(e)})["catch"](function(){e.stop(),d("DeviceMotion is not supported")})});return b},t.Quaternion=function(a,c,d,e){var f;this.set=function(a,b,c,d){this.x=a||0,this.y=b||0,this.z=c||0,this.w=d||1},this.copy=function(a){this.x=a.x,this.y=a.y,this.z=a.z,this.w=a.w},this.setFromEuler=function(){var a,b,c,d,e,f,g,h,i,k,l,m;return function(n){return n=n||{},c=(n.alpha||0)*j,a=(n.beta||0)*j,b=(n.gamma||0)*j,f=c/2,d=a/2,e=b/2,g=Math.cos(d),h=Math.cos(e),i=Math.cos(f),k=Math.sin(d),l=Math.sin(e),m=Math.sin(f),this.set(k*h*i-g*l*m,g*l*i+k*h*m,g*h*m+k*l*i,g*h*i-k*l*m),this.normalize(),this}}(),this.setFromRotationMatrix=function(){var a;return function(c){return a=c.elements,this.set(.5*Math.sqrt(1+a[0]-a[4]-a[8])*b(a[7]-a[5]),.5*Math.sqrt(1-a[0]+a[4]-a[8])*b(a[2]-a[6]),.5*Math.sqrt(1-a[0]-a[4]+a[8])*b(a[3]-a[1]),.5*Math.sqrt(1+a[0]+a[4]+a[8])),this}}(),this.multiply=function(a){return f=t.Quaternion.prototype.multiplyQuaternions(this,a),this.copy(f),this},this.rotateX=function(a){return f=t.Quaternion.prototype.rotateByAxisAngle(this,[1,0,0],a),this.copy(f),this},this.rotateY=function(a){return f=t.Quaternion.prototype.rotateByAxisAngle(this,[0,1,0],a),this.copy(f),this},this.rotateZ=function(a){return f=t.Quaternion.prototype.rotateByAxisAngle(this,[0,0,1],a),this.copy(f),this},this.normalize=function(){return t.Quaternion.prototype.normalize(this)},this.set(a,c,d,e)},t.Quaternion.prototype={constructor:t.Quaternion,multiplyQuaternions:function(){var a=new t.Quaternion;return function(b,c){var d=b.x,e=b.y,f=b.z,g=b.w,h=c.x,i=c.y,j=c.z,k=c.w;return a.set(d*k+g*h+e*j-f*i,e*k+g*i+f*h-d*j,f*k+g*j+d*i-e*h,g*k-d*h-e*i-f*j),a}}(),normalize:function(a){var b=Math.sqrt(a.x*a.x+a.y*a.y+a.z*a.z+a.w*a.w);return 0===b?(a.x=0,a.y=0,a.z=0,a.w=1):(b=1/b,a.x*=b,a.y*=b,a.z*=b,a.w*=b),a},rotateByAxisAngle:function(){var a,b,c=new t.Quaternion,d=new t.Quaternion;return function(e,f,g){return a=(g||0)/2,b=Math.sin(a),d.set((f[0]||0)*b,(f[1]||0)*b,(f[2]||0)*b,Math.cos(a)),c=t.Quaternion.prototype.multiplyQuaternions(e,d),t.Quaternion.prototype.normalize(c)}}()},t.RotationMatrix=function(a,b,c,d,e,f,g,h,i){var k;this.elements=new Float32Array(9),this.identity=function(){return this.set(1,0,0,0,1,0,0,0,1),this},this.set=function(a,b,c,d,e,f,g,h,i){this.elements[0]=a||1,this.elements[1]=b||0,this.elements[2]=c||0,this.elements[3]=d||0,this.elements[4]=e||1,this.elements[5]=f||0,this.elements[6]=g||0,this.elements[7]=h||0,this.elements[8]=i||1},this.copy=function(a){this.elements[0]=a.elements[0],this.elements[1]=a.elements[1],this.elements[2]=a.elements[2],this.elements[3]=a.elements[3],this.elements[4]=a.elements[4],this.elements[5]=a.elements[5],this.elements[6]=a.elements[6],this.elements[7]=a.elements[7],this.elements[8]=a.elements[8]},this.setFromEuler=function(){var a,b,c,d,e,f,g,h,i;return function(k){return k=k||{},c=(k.alpha||0)*j,a=(k.beta||0)*j,b=(k.gamma||0)*j,d=Math.cos(a),e=Math.cos(b),f=Math.cos(c),g=Math.sin(a),h=Math.sin(b),i=Math.sin(c),this.set(f*e-i*g*h,-d*i,e*i*g+f*h,e*i+f*g*h,f*d,i*h-f*e*g,-d*h,g,d*e),this.normalize(),this}}(),this.setFromQuaternion=function(){var a,b,c,d;return function(e){return a=e.w*e.w,b=e.x*e.x,c=e.y*e.y,d=e.z*e.z,this.set(a+b-c-d,2*(e.x*e.y-e.w*e.z),2*(e.x*e.z+e.w*e.y),2*(e.x*e.y+e.w*e.z),a-b+c-d,2*(e.y*e.z-e.w*e.x),2*(e.x*e.z-e.w*e.y),2*(e.y*e.z+e.w*e.x),a-b-c+d),this}}(),this.multiply=function(a){return k=t.RotationMatrix.prototype.multiplyMatrices(this,a),this.copy(k),this},this.rotateX=function(a){return k=t.RotationMatrix.prototype.rotateByAxisAngle(this,[1,0,0],a),this.copy(k),this},this.rotateY=function(a){return k=t.RotationMatrix.prototype.rotateByAxisAngle(this,[0,1,0],a),this.copy(k),this},this.rotateZ=function(a){return k=t.RotationMatrix.prototype.rotateByAxisAngle(this,[0,0,1],a),this.copy(k),this},this.normalize=function(){return t.RotationMatrix.prototype.normalize(this)},this.set(a,b,c,d,e,f,g,h,i)},t.RotationMatrix.prototype={constructor:t.RotationMatrix,multiplyMatrices:function(){var a,b,c=new t.RotationMatrix;return function(d,e){return a=d.elements,b=e.elements,c.set(a[0]*b[0]+a[1]*b[3]+a[2]*b[6],a[0]*b[1]+a[1]*b[4]+a[2]*b[7],a[0]*b[2]+a[1]*b[5]+a[2]*b[8],a[3]*b[0]+a[4]*b[3]+a[5]*b[6],a[3]*b[1]+a[4]*b[4]+a[5]*b[7],a[3]*b[2]+a[4]*b[5]+a[5]*b[8],a[6]*b[0]+a[7]*b[3]+a[8]*b[6],a[6]*b[1]+a[7]*b[4]+a[8]*b[7],a[6]*b[2]+a[7]*b[5]+a[8]*b[8]),c}}(),normalize:function(a){var b=a.elements,c=b[0]*b[4]*b[8]-b[0]*b[5]*b[7]-b[1]*b[3]*b[8]+b[1]*b[5]*b[6]+b[2]*b[3]*b[7]-b[2]*b[4]*b[6];return b[0]/=c,b[1]/=c,b[2]/=c,b[3]/=c,b[4]/=c,b[5]/=c,b[6]/=c,b[7]/=c,b[8]/=c,a.elements=b,a},rotateByAxisAngle:function(){var a,b,c=new t.RotationMatrix,d=new t.RotationMatrix,e=!1;return function(f,g,h){return d.identity(),e=!1,a=Math.sin(h),b=Math.cos(h),1===g[0]&&0===g[1]&&0===g[2]?(e=!0,d.elements[4]=b,d.elements[5]=-a,d.elements[7]=a,d.elements[8]=b):1===g[1]&&0===g[0]&&0===g[2]?(e=!0,d.elements[0]=b,d.elements[2]=a,d.elements[6]=-a,d.elements[8]=b):1===g[2]&&0===g[0]&&0===g[1]&&(e=!0,d.elements[0]=b,d.elements[1]=-a,d.elements[3]=a,d.elements[4]=b),e?(c=t.RotationMatrix.prototype.multiplyMatrices(f,d),c=t.RotationMatrix.prototype.normalize(c)):c=f,c}}()},t.Euler=function(a,b,c){this.set=function(a,b,c){this.alpha=a||0,this.beta=b||0,this.gamma=c||0},this.copy=function(a){this.alpha=a.alpha,this.beta=a.beta,this.gamma=a.gamma},this.setFromRotationMatrix=function(){var a,b,c,d;return function(e){a=e.elements,a[8]>0?(b=Math.atan2(-a[1],a[4]),c=Math.asin(a[7]),d=Math.atan2(-a[6],a[8])):a[8]<0?(b=Math.atan2(a[1],-a[4]),c=-Math.asin(a[7]),c+=c>=0?-g:g,d=Math.atan2(a[6],-a[8])):a[6]>0?(b=Math.atan2(-a[1],a[4]),c=Math.asin(a[7]),d=-h):a[6]<0?(b=Math.atan2(a[1],-a[4]),c=-Math.asin(a[7]),c+=c>=0?-g:g,d=-h):(b=Math.atan2(a[3],a[0]),c=a[7]>0?h:-h,d=0),0>b&&(b+=i),b*=k,c*=k,d*=k,this.set(b,c,d)}}(),this.setFromQuaternion=function(){var a,b,c;return function(d){var e=d.w*d.w,f=d.x*d.x,j=d.y*d.y,l=d.z*d.z,m=e+f+j+l,n=d.w*d.x+d.y*d.z,o=1e-6;if(n>(.5-o)*m){ a=2*Math.atan2(d.y,d.w),b=h,c=0; }else if((-.5+o)*m>n){ a=-2*Math.atan2(d.y,d.w),b=-h,c=0; }else{var p=e-f+j-l,q=2*(d.w*d.z-d.x*d.y),r=e-f-j+l,s=2*(d.w*d.y-d.x*d.z);r>0?(a=Math.atan2(q,p),b=Math.asin(2*n/m),c=Math.atan2(s,r)):(a=Math.atan2(-q,-p),b=-Math.asin(2*n/m),b+=0>b?g:-g,c=Math.atan2(-s,-r))}0>a&&(a+=i),a*=k,b*=k,c*=k,this.set(a,b,c)}}(),this.rotateX=function(a){return t.Euler.prototype.rotateByAxisAngle(this,[1,0,0],a),this},this.rotateY=function(a){return t.Euler.prototype.rotateByAxisAngle(this,[0,1,0],a),this},this.rotateZ=function(a){return t.Euler.prototype.rotateByAxisAngle(this,[0,0,1],a),this},this.set(a,b,c)},t.Euler.prototype={constructor:t.Euler,rotateByAxisAngle:function(){var a=new t.RotationMatrix;return function(b,c,d){return a.setFromEuler(b),a=t.RotationMatrix.prototype.rotateByAxisAngle(a,c,d),b.setFromRotationMatrix(a),b}}()},t.DeviceOrientation=function(b){this.options=b||{};var c=0,d=200,e=0,f=10;if(this.alphaOffsetScreen=0,this.alphaOffsetDevice=void 0,"game"===this.options.type){var g=function(b){return null!==b.alpha&&(this.alphaOffsetDevice=new t.Euler(b.alpha,0,0),this.alphaOffsetDevice.rotateZ(-o),++e>=f)?void a.removeEventListener("deviceorientation",g,!1):void(++c>=d&&a.removeEventListener("deviceorientation",g,!1))}.bind(this);a.addEventListener("deviceorientation",g,!1)}else if("world"===this.options.type){var h=function(b){return b.absolute!==!0&&void 0!==b.webkitCompassAccuracy&&null!==b.webkitCompassAccuracy&&+b.webkitCompassAccuracy>=0&&+b.webkitCompassAccuracy<50&&(this.alphaOffsetDevice=new t.Euler(b.webkitCompassHeading,0,0),this.alphaOffsetDevice.rotateZ(o),this.alphaOffsetScreen=o,++e>=f)?void a.removeEventListener("deviceorientation",h,!1):void(++c>=d&&a.removeEventListener("deviceorientation",h,!1))}.bind(this);a.addEventListener("deviceorientation",h,!1)}},t.DeviceOrientation.prototype={constructor:t.DeviceOrientation,start:function(b){b&&"[object Function]"==Object.prototype.toString.call(b)&&l.orientation.callbacks.push(b),m||(n?a.screen.orientation.addEventListener("change",d,!1):a.addEventListener("orientationchange",d,!1)),l.orientation.active||(a.addEventListener("deviceorientation",e,!1),l.orientation.active=!0)},stop:function(){l.orientation.active&&(a.removeEventListener("deviceorientation",e,!1),l.orientation.active=!1)},listen:function(a){this.start(a)},getFixedFrameQuaternion:function(){var a=new t.Euler,b=new t.RotationMatrix,c=new t.Quaternion;return function(){var d=l.orientation.data||{alpha:0,beta:0,gamma:0},e=d.alpha;return this.alphaOffsetDevice&&(b.setFromEuler(this.alphaOffsetDevice),b.rotateZ(-this.alphaOffsetScreen),a.setFromRotationMatrix(b),a.alpha<0&&(a.alpha+=360),a.alpha%=360,e-=a.alpha),a.set(e,d.beta,d.gamma),c.setFromEuler(a),c}}(),getScreenAdjustedQuaternion:function(){var a;return function(){return a=this.getFixedFrameQuaternion(),a.rotateZ(-o),a}}(),getFixedFrameMatrix:function(){var a=new t.Euler,b=new t.RotationMatrix;return function(){var c=l.orientation.data||{alpha:0,beta:0,gamma:0},d=c.alpha;return this.alphaOffsetDevice&&(b.setFromEuler(this.alphaOffsetDevice),b.rotateZ(-this.alphaOffsetScreen),a.setFromRotationMatrix(b),a.alpha<0&&(a.alpha+=360),a.alpha%=360,d-=a.alpha),a.set(d,c.beta,c.gamma),b.setFromEuler(a),b}}(),getScreenAdjustedMatrix:function(){var a;return function(){return a=this.getFixedFrameMatrix(),a.rotateZ(-o),a}}(),getFixedFrameEuler:function(){var a,b=new t.Euler;return function(){return a=this.getFixedFrameMatrix(),b.setFromRotationMatrix(a),b}}(),getScreenAdjustedEuler:function(){var a,b=new t.Euler;return function(){return a=this.getScreenAdjustedMatrix(),b.setFromRotationMatrix(a),b}}(),isAbsolute:function(){return l.orientation.data&&l.orientation.data.absolute===!0?!0:!1},getLastRawEventData:function(){return l.orientation.data||{}},_alphaAvailable:!1,_betaAvailable:!1,_gammaAvailable:!1,isAvailable:function(a){switch(a){case this.ALPHA:return this._alphaAvailable;case this.BETA:return this._betaAvailable;case this.GAMMA:return this._gammaAvailable}},ALPHA:"alpha",BETA:"beta",GAMMA:"gamma"},t.DeviceMotion=function(a){this.options=a||{}},t.DeviceMotion.prototype={constructor:t.DeviceMotion,start:function(b){b&&"[object Function]"==Object.prototype.toString.call(b)&&l.motion.callbacks.push(b),m||(n?a.screen.orientation.addEventListener("change",d,!1):a.addEventListener("orientationchange",d,!1)),l.motion.active||(a.addEventListener("devicemotion",f,!1),l.motion.active=!0)},stop:function(){l.motion.active&&(a.removeEventListener("devicemotion",f,!1),l.motion.active=!1)},listen:function(a){this.start(a)},getScreenAdjustedAcceleration:function(){var a=l.motion.data&&l.motion.data.acceleration?l.motion.data.acceleration:{x:0,y:0,z:0},b={};switch(o){case p:b.x=-a.y,b.y=a.x;break;case q:b.x=-a.x,b.y=-a.y;break;case r:case s:b.x=a.y,b.y=-a.x;break;default:b.x=a.x,b.y=a.y}return b.z=a.z,b},getScreenAdjustedAccelerationIncludingGravity:function(){var a=l.motion.data&&l.motion.data.accelerationIncludingGravity?l.motion.data.accelerationIncludingGravity:{x:0,y:0,z:0},b={};switch(o){case p:b.x=-a.y,b.y=a.x;break;case q:b.x=-a.x,b.y=-a.y;break;case r:case s:b.x=a.y,b.y=-a.x;break;default:b.x=a.x,b.y=a.y}return b.z=a.z,b},getScreenAdjustedRotationRate:function(){var a=l.motion.data&&l.motion.data.rotationRate?l.motion.data.rotationRate:{alpha:0,beta:0,gamma:0},b={};switch(o){case p:b.beta=-a.gamma,b.gamma=a.beta;break;case q:b.beta=-a.beta,b.gamma=-a.gamma;break;case r:case s:b.beta=a.gamma,b.gamma=-a.beta;break;default:b.beta=a.beta,b.gamma=a.gamma}return b.alpha=a.alpha,b},getLastRawEventData:function(){return l.motion.data||{}},_accelerationXAvailable:!1,_accelerationYAvailable:!1,_accelerationZAvailable:!1,_accelerationIncludingGravityXAvailable:!1,_accelerationIncludingGravityYAvailable:!1,_accelerationIncludingGravityZAvailable:!1,_rotationRateAlphaAvailable:!1,_rotationRateBetaAvailable:!1,_rotationRateGammaAvailable:!1,isAvailable:function(a){switch(a){case this.ACCELERATION_X:return this._accelerationXAvailable;case this.ACCELERATION_Y:return this._accelerationYAvailable;case this.ACCELERATION_Z:return this._accelerationZAvailable;case this.ACCELERATION_INCLUDING_GRAVITY_X:return this._accelerationIncludingGravityXAvailable;case this.ACCELERATION_INCLUDING_GRAVITY_Y:return this._accelerationIncludingGravityYAvailable;case this.ACCELERATION_INCLUDING_GRAVITY_Z:return this._accelerationIncludingGravityZAvailable;case this.ROTATION_RATE_ALPHA:return this._rotationRateAlphaAvailable;case this.ROTATION_RATE_BETA:return this._rotationRateBetaAvailable;case this.ROTATION_RATE_GAMMA:return this._rotationRateGammaAvailable}},ACCELERATION_X:"accelerationX",ACCELERATION_Y:"accelerationY",ACCELERATION_Z:"accelerationZ",ACCELERATION_INCLUDING_GRAVITY_X:"accelerationIncludingGravityX",ACCELERATION_INCLUDING_GRAVITY_Y:"accelerationIncludingGravityY",ACCELERATION_INCLUDING_GRAVITY_Z:"accelerationIncludingGravityZ",ROTATION_RATE_ALPHA:"rotationRateAlpha",ROTATION_RATE_BETA:"rotationRateBeta",ROTATION_RATE_GAMMA:"rotationRateGamma"},a.FULLTILT=t}}(window);
 
-(function(root, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
-      return (root.GyroNorm = factory());
-    }).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof module === 'object' && module.exports) {
-    module.exports = (root.GyroNorm = factory());
-  } else {
-    root.GyroNorm = factory();
-  }
-}(this, function() {
-  /* Constants */
-  var GAME                            = 'game';
-  var WORLD                           = 'world';
-  var DEVICE_ORIENTATION              = 'deviceorientation';
-  var ACCELERATION                    = 'acceleration';
-  var ACCELERATION_INCLUDING_GRAVITY  = 'accelerationinludinggravity';
-  var ROTATION_RATE                   = 'rotationrate';
-
-  /*-------------------------------------------------------*/
-  /* PRIVATE VARIABLES */
-
-  var _interval           = null;       // Timer to return values
-  var _isCalibrating      = false;      // Flag if calibrating
-  var _calibrationValue   = 0;          // Alpha offset value
-  var _gravityCoefficient = 0;          // Coefficient to normalze gravity related values
-  var _isRunning          = false;      // Boolean value if GyroNorm is tracking
-  var _isReady            = false;      // Boolean value if GyroNorm is is initialized
-
-  var _do                 = null;       // Object to store the device orientation values
-  var _dm                 = null;       // Object to store the device motion values
-
-  /* OPTIONS */
-  var _frequency          = 50;         // Frequency for the return data in milliseconds
-  var _gravityNormalized  = true;       // Flag if to normalize gravity values
-  var _orientationBase    = GAME;       // Can be GyroNorm.GAME or GyroNorm.WORLD. GyroNorm.GAME returns orientation values with respect to the head direction of the device. GyroNorm.WORLD returns the orientation values with respect to the actual north direction of the world.
-  var _decimalCount       = 2;          // Number of digits after the decimals point for the return values
-  var _logger             = null;       // Function to callback on error. There is no default value. It can only be set by the user on gn.init()
-  var _screenAdjusted     = false;      // If set to true it will return screen adjusted values. (e.g. On a horizontal orientation of a mobile device, the head would be one of the sides, instead of  the actual head of the device.)
-
-  var _values = {
-    do: {
-      alpha: 0,
-      beta: 0,
-      gamma: 0,
-      absolute: false
-    },
-    dm: {
-      x: 0,
-      y: 0,
-      z: 0,
-      gx: 0,
-      gy: 0,
-      gz: 0,
-      alpha: 0,
-      beta: 0,
-      gamma: 0
-    }
-  }
-
-  /*-------------------------------------------------------*/
-  /* PUBLIC FUNCTIONS */
-
-  /*
-  *
-  * Constructor function
-  *
-  */
-
-  var GyroNorm = function(options) {}
-
-  /* Constants */
-  GyroNorm.GAME                             = GAME;
-  GyroNorm.WORLD                            = WORLD;
-  GyroNorm.DEVICE_ORIENTATION               = DEVICE_ORIENTATION;
-  GyroNorm.ACCELERATION                     = ACCELERATION;
-  GyroNorm.ACCELERATION_INCLUDING_GRAVITY   = ACCELERATION_INCLUDING_GRAVITY;
-  GyroNorm.ROTATION_RATE                    = ROTATION_RATE;
-
-  /*
-  *
-  * Initialize GyroNorm instance function
-  *
-  * @param object options - values are as follows. If set in the init function they overwrite the default option values
-  * @param int options.frequency
-  * @param boolean options.gravityNormalized
-  * @param boolean options.orientationBase
-  * @param boolean options.decimalCount
-  * @param function options.logger
-  * @param function options.screenAdjusted
-  *
-  */
-
-  GyroNorm.prototype.init = function(options) {
-    // Assign options that are passed with the constructor function
-    if (options && options.frequency) { _frequency = options.frequency; }
-    if (options && options.gravityNormalized) { _gravityNormalized = options.gravityNormalized; }
-    if (options && options.orientationBase) { _orientationBase = options.orientationBase; }
-    if (options && options.decimalCount) { _decimalCount = options.decimalCount; }
-    if (options && options.logger) { _logger = options.logger; }
-    if (options && options.screenAdjusted) { _screenAdjusted = options.screenAdjusted; }
-
-    var deviceOrientationPromise = new FULLTILT.getDeviceOrientation({ 'type': _orientationBase }).then(function(controller) {
-      _do = controller;
-    });
-
-    var deviceMotionPromise = new FULLTILT.getDeviceMotion().then(function(controller) {
-      _dm = controller;
-      // Set gravity coefficient
-      _gravityCoefficient = (_dm.getScreenAdjustedAccelerationIncludingGravity().z > 0) ? -1 : 1;
-    });
-
-    return Promise.all([deviceOrientationPromise, deviceMotionPromise]).then(function() {
-      _isReady = true;
-    });
-  }
-
-  /*
-  *
-  * Stops all the tracking and listening on the window objects
-  *
-  */
-  GyroNorm.prototype.end = function() {
-    try {
-      _isReady = false;
-      this.stop();
-      _dm.stop();
-      _do.stop();
-    } catch(err){
-      log(err);
-    }
-  }
-
-  /*
-  *
-  * Starts tracking the values
-  *
-  * @param function callback - Callback function to read the values
-  *
-  */
-  GyroNorm.prototype.start = function(callback) {
-    if (!_isReady) {
-      log({ message: 'GyroNorm is not initialized yet. First call the "init()" function.', code: 1 });
-      return;
-    }
-
-    _interval = setInterval(function() {
-      callback(snapShot());
-    }, _frequency);
-    _isRunning = true;
-  }
-
-  /*
-  *
-  * Stops tracking the values
-  *
-  */
-  GyroNorm.prototype.stop = function() {
-    if (_interval) {
-      clearInterval(_interval);
-      _isRunning = false;
-    }
-  }
-
-  /*
-  *
-  * Toggles if to normalize gravity related values
-  *
-  * @param boolean flag
-  *
-  */
-  GyroNorm.prototype.normalizeGravity = function(flag) {
-    _gravityNormalized = (flag) ? true : false;
-  }
-
-
-  /*
-  *
-  * Sets the current head direction as alpha = 0
-  * Can only be used if device orientation is being tracked, values are not screen adjusted, value type is GyroNorm.EULER and orientation base is GyroNorm.GAME
-  *
-  * @return: If head direction is set successfully returns true, else false
-  *
-  */
-  GyroNorm.prototype.setHeadDirection = function() {
-    if (_screenAdjusted || _orientationBase === WORLD) {
-      return false;
-    }
-
-    _calibrationValue = _do.getFixedFrameEuler().alpha;
-    return true;
-  }
-
-  /*
-  *
-  * Sets the log function
-  *
-  */
-  GyroNorm.prototype.startLogging = function(logger) {
-    if (logger) {
-      _logger = logger;
-    }
-  }
-
-  /*
-  *
-  * Sets the log function to null which stops the logging
-  *
-  */
-  GyroNorm.prototype.stopLogging = function() {
-    _logger = null;
-  }
-
-  /*
-  *
-  * Returns if certain type of event is available on the device
-  *
-  * @param string _eventType - possible values are "deviceorientation" , "devicemotion" , "compassneedscalibration"
-  *
-  * @return true if event is available false if not
-  *
-  */
-  GyroNorm.prototype.isAvailable = function(_eventType) {
-
-    var doSnapShot = _do.getScreenAdjustedEuler();
-    var accSnapShot = _dm.getScreenAdjustedAcceleration();
-    var accGraSnapShot = _dm.getScreenAdjustedAccelerationIncludingGravity();
-    var rotRateSnapShot = _dm.getScreenAdjustedRotationRate();
-
-    switch (_eventType) {
-      case DEVICE_ORIENTATION:
-        return ((doSnapShot.alpha && doSnapShot.alpha !== null) && (doSnapShot.beta && doSnapShot.beta !== null) && (doSnapShot.gamma && doSnapShot.gamma !== null));
-        break;
-
-      case ACCELERATION:
-        return (accSnapShot && accSnapShot.x && accSnapShot.y && accSnapShot.z);
-        break;
-
-      case ACCELERATION_INCLUDING_GRAVITY:
-        return (accGraSnapShot && accGraSnapShot.x && accGraSnapShot.y && accGraSnapShot.z);
-        break;
-
-      case ROTATION_RATE:
-        return (rotRateSnapShot && rotRateSnapShot.alpha && rotRateSnapShot.beta && rotRateSnapShot.gamma);
-        break;
-
-      default:
-        return {
-          deviceOrientationAvailable: ((doSnapShot.alpha && doSnapShot.alpha !== null) && (doSnapShot.beta && doSnapShot.beta !== null) && (doSnapShot.gamma && doSnapShot.gamma !== null)),
-          accelerationAvailable: (accSnapShot && accSnapShot.x && accSnapShot.y && accSnapShot.z),
-          accelerationIncludingGravityAvailable: (accGraSnapShot && accGraSnapShot.x && accGraSnapShot.y && accGraSnapShot.z),
-          rotationRateAvailable: (rotRateSnapShot && rotRateSnapShot.alpha && rotRateSnapShot.beta && rotRateSnapShot.gamma)
-        }
-        break;
-    }
-  }
-
-  /*
-  *
-  * Returns boolean value if the GyroNorm is running
-  *
-  */
-  GyroNorm.prototype.isRunning = function() {
-    return _isRunning;
-  }
-
-  /*-------------------------------------------------------*/
-  /* PRIVATE FUNCTIONS */
-
-  /*
-  *
-  * Utility function to round with digits after the decimal point
-  *
-  * @param float number - the original number to round
-  *
-  */
-  function rnd(number) {
-    return Math.round(number * Math.pow(10, _decimalCount)) / Math.pow(10, _decimalCount);
-  }
-
-  /*
-  *
-  * Starts calibration
-  *
-  */
-  function calibrate() {
-    _isCalibrating = true;
-    _calibrationValues = new Array();
-  }
-
-  /*
-  *
-  * Takes a snapshot of the current deviceo orientaion and device motion values
-  *
-  */
-  function snapShot() {
-    var doSnapShot = {};
-
-    if (_screenAdjusted) {
-      doSnapShot = _do.getScreenAdjustedEuler();
-    } else {
-      doSnapShot = _do.getFixedFrameEuler();
-    }
-
-    var accSnapShot = _dm.getScreenAdjustedAcceleration();
-    var accGraSnapShot = _dm.getScreenAdjustedAccelerationIncludingGravity();
-    var rotRateSnapShot = _dm.getScreenAdjustedRotationRate();
-
-    var alphaToSend = 0;
-
-    if (_orientationBase === GAME) {
-      alphaToSend = doSnapShot.alpha - _calibrationValue;
-      alphaToSend = (alphaToSend < 0) ? (360 - Math.abs(alphaToSend)) : alphaToSend;
-    } else {
-      alphaToSend = doSnapShot.alpha;
-    }
-
-    var snapShot = {
-      do: {
-        alpha: rnd(alphaToSend),
-        beta: rnd(doSnapShot.beta),
-        gamma: rnd(doSnapShot.gamma),
-        absolute: _do.isAbsolute()
-      },
-      dm: {
-        x: rnd(accSnapShot.x),
-        y: rnd(accSnapShot.y),
-        z: rnd(accSnapShot.z),
-        gx: rnd(accGraSnapShot.x),
-        gy: rnd(accGraSnapShot.y),
-        gz: rnd(accGraSnapShot.z),
-        alpha: rnd(rotRateSnapShot.alpha),
-        beta: rnd(rotRateSnapShot.beta),
-        gamma: rnd(rotRateSnapShot.gamma)
-      }
-    };
-
-    // Normalize gravity
-    if (_gravityNormalized) {
-      snapShot.dm.gx *= _gravityCoefficient;
-      snapShot.dm.gy *= _gravityCoefficient;
-      snapShot.dm.gz *= _gravityCoefficient;
-    }
-
-    return snapShot;
-  }
-
-
-  /*
-  *
-  * Starts listening to orientation event on the window object
-  *
-  */
-  function log(err) {
-    if (_logger) {
-      if (typeof(err) == 'string') {
-        err = { message: err, code: 0 }
-      }
-      _logger(err);
-    }
-  }
-
-  return GyroNorm;
-}));
-
+/* gyronorm.js v2.0.6 - https://github.com/dorukeker/gyronorm.git*/
+!function(a,b){var c={GyroNorm:b()}; true?!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return c}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof module&&module.exports?module.exports=c:a.GyroNorm=c.GyroNorm}(this,function(){function a(a){return Math.round(a*Math.pow(10,t))/Math.pow(10,t)}function b(){var b={};b=v?o.getScreenAdjustedEuler():o.getFixedFrameEuler();var c=p.getScreenAdjustedAcceleration(),e=p.getScreenAdjustedAccelerationIncludingGravity(),f=p.getScreenAdjustedRotationRate(),g=0;s===d?(g=b.alpha-k,g=0>g?360-Math.abs(g):g):g=b.alpha;var h={"do":{alpha:a(g),beta:a(b.beta),gamma:a(b.gamma),absolute:o.isAbsolute()},dm:{x:a(c.x),y:a(c.y),z:a(c.z),gx:a(e.x),gy:a(e.y),gz:a(e.z),alpha:a(f.alpha),beta:a(f.beta),gamma:a(f.gamma)}};return r&&(h.dm.gx*=l,h.dm.gy*=l,h.dm.gz*=l),h}function c(a){u&&("string"==typeof a&&(a={message:a,code:0}),u(a))}var d="game",e="world",f="deviceorientation",g="acceleration",h="accelerationinludinggravity",i="rotationrate",j=null,k=0,l=0,m=!1,n=!1,o=null,p=null,q=50,r=!0,s=d,t=2,u=null,v=!1,w=function(a){};return w.GAME=d,w.WORLD=e,w.DEVICE_ORIENTATION=f,w.ACCELERATION=g,w.ACCELERATION_INCLUDING_GRAVITY=h,w.ROTATION_RATE=i,w.prototype.init=function(a){a&&a.frequency&&(q=a.frequency),a&&a.gravityNormalized&&(r=a.gravityNormalized),a&&a.orientationBase&&(s=a.orientationBase),a&&"number"==typeof a.decimalCount&&a.decimalCount>=0&&(t=parseInt(a.decimalCount)),a&&a.logger&&(u=a.logger),a&&a.screenAdjusted&&(v=a.screenAdjusted);var b=new FULLTILT.getDeviceOrientation({type:s}).then(function(a){o=a}),c=(new FULLTILT.getDeviceMotion).then(function(a){p=a,l=p.getScreenAdjustedAccelerationIncludingGravity().z>0?-1:1});return Promise.all([b,c]).then(function(){n=!0})},w.prototype.end=function(){try{n=!1,this.stop(),p.stop(),o.stop()}catch(a){c(a)}},w.prototype.start=function(a){return n?(j=setInterval(function(){a(b())},q),void(m=!0)):void c({message:'GyroNorm is not initialized yet. First call the "init()" function.',code:1})},w.prototype.stop=function(){j&&(clearInterval(j),m=!1)},w.prototype.normalizeGravity=function(a){r=a?!0:!1},w.prototype.setHeadDirection=function(){return v||s===e?!1:(k=o.getFixedFrameEuler().alpha,!0)},w.prototype.startLogging=function(a){a&&(u=a)},w.prototype.stopLogging=function(){u=null},w.prototype.isAvailable=function(a){var b=o.getScreenAdjustedEuler(),c=p.getScreenAdjustedAcceleration(),d=p.getScreenAdjustedAccelerationIncludingGravity(),e=p.getScreenAdjustedRotationRate();switch(a){case f:return b.alpha&&null!==b.alpha&&b.beta&&null!==b.beta&&b.gamma&&null!==b.gamma;case g:return c&&c.x&&c.y&&c.z;case h:return d&&d.x&&d.y&&d.z;case i:return e&&e.alpha&&e.beta&&e.gamma;default:return{deviceOrientationAvailable:b.alpha&&null!==b.alpha&&b.beta&&null!==b.beta&&b.gamma&&null!==b.gamma,accelerationAvailable:c&&c.x&&c.y&&c.z,accelerationIncludingGravityAvailable:d&&d.x&&d.y&&d.z,rotationRateAvailable:e&&e.alpha&&e.beta&&e.gamma}}},w.prototype.isRunning=function(){return m},w});
 
 /***/ })
 /******/ ]);
