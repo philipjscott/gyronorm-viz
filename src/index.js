@@ -10,13 +10,12 @@ const renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshNormalMaterial({ color: 0xffff00 })
+const geometry = new THREE.BoxGeometry(2, 2, 2)
+const material = new THREE.MeshNormalMaterial()
 const cube = new THREE.Mesh(geometry, material)
 
 scene.add(cube)
 camera.position.z = 5
-  cube.rotation.y = 1
 
 function animate() {
   requestAnimationFrame(animate)

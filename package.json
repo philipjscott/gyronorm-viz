@@ -7,8 +7,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --open",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "dev": "webpack-dev-server --open"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "^2.1.2",
