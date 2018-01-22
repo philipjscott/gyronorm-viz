@@ -84,13 +84,12 @@ var renderer = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* WebGLRenderer */](
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-var geometry = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BoxGeometry */](1, 1, 1)
-var material = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* MeshNormalMaterial */]({ color: 0xffff00 })
+var geometry = new __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BoxGeometry */](2, 2, 2)
+var material = new __WEBPACK_IMPORTED_MODULE_0_three__["c" /* MeshNormalMaterial */]()
 var cube = new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* Mesh */](geometry, material)
 
 scene.add(cube)
 camera.position.z = 5
-  cube.rotation.y = 1
 
 function animate() {
   requestAnimationFrame(animate)
