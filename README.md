@@ -10,7 +10,7 @@ Demo available [here](http://scottyfillups.github.io/gyronorm-viz). It only work
 
 ![gyronorm-viz demo](http://scottyfillups.github.io/gyronorm-viz/assets/demo.gif)
 
-### Licensing
+## Licensing
 
 gyronorm.js depends on fulltilt, which is licensed under a "Creative Commons Attribution-NonCommercial 4.0 International License", and isn't recommended for commercial projects. I recommend listening to the `deviceorientation` global event instead:
 
