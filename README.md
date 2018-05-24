@@ -8,7 +8,7 @@ Visualizations done with [Three.js](https://github.com/mrdoob/three.js/).
 
 Demo available [here](http://scottyfillups.github.io/gyronorm-viz). It only works on mobile; try tilting your phone!
 
-![gyronorm-viz demo](http://scottyfillups.github.io/gyronorm-viz/assets/demo.gif)
+![gyronorm-viz demo](https://raw.githubusercontent.com/ScottyFillups/gyronorm-viz/master/assets/demo.gif)
 
 ## Licensing
 
