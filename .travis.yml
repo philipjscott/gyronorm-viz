@@ -1,9 +1,6 @@
 language: node_js
 before_script:
 - yarn install
-- mkdir dist
-- mkdir dist/assets
-- cp assets/* dist/assets
 - yarn run build
 node_js:
 - node
