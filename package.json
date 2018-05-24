@@ -5,7 +5,7 @@
   "author": "Philip Scott <pscott@zeptohost.com>",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build ./src/index.html",
+    "build": "parcel build ./src/index.html --public-url '.'",
     "dev": "parcel ./src/index.html",
     "test": "echo \"No test specified!\""
   },
