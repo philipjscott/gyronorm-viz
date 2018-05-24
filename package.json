@@ -5,9 +5,8 @@
   "author": "Philip Scott <pscott@zeptohost.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "dev": "webpack-dev-server --open",
+    "build": "parcel build ./src/index.html",
+    "dev": "parcel ./src/index.html",
     "test": "echo \"No test specified!\""
   },
   "devDependencies": {
