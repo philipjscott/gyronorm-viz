@@ -6,4 +6,4 @@ var t,e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){
 },{}],6:[function(require,module,exports) {
 "use strict";var e=require("three"),n=t(e),r=require("../vendor/gyronorm.complete.min");function t(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&(n[r]=e[r]);return n.default=e,n}var o=function(e){return e*(Math.PI/180)},i=new n.Scene,a=new n.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1e3),d=new n.WebGLRenderer;d.setSize(window.innerWidth,window.innerHeight),document.body.appendChild(d.domElement);var u=new n.BoxGeometry(2,2,2),w=new n.MeshNormalMaterial,m=new n.Mesh(u,w);function c(){requestAnimationFrame(c),d.render(i,a)}i.add(m),a.position.z=5,c();var h=new r.GyroNorm;h.init().then(function(){h.start(function(e){var n=o(e.do.alpha),r=o(e.do.beta),t=o(e.do.gamma);m.rotation.x=r,m.rotation.y=t,m.rotation.z=n})});
 },{"three":11,"../vendor/gyronorm.complete.min":9}]},{},[6], null)
-//# sourceMappingURL=/src.cd112e0c.map
+//# sourceMappingURL=src.cd112e0c.map
